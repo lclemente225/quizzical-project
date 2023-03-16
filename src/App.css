@@ -54,7 +54,9 @@
 .choices{
   padding: 7px;
 }
-
+.question{
+  font-size: 200px;
+}
 .btton{
   max-width: 200px;
   

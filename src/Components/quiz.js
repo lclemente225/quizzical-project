@@ -2,16 +2,20 @@ import React from "react"
  
 export default function Quiz(props){
     let QuizChoice = `QuizChoice ${props.index}`;
-    const [score, changeScore] = React.useState(0);
     const [formData, setFormData] = React.useState({
          [QuizChoice] : ""
      })
     
+    function objectInsert(x, y){
+        let obj = props.answerArray;
+        return obj[x] = y
+    }
+    
        function handleChange(event) {
-        console.log("this is handlechange event",event.target)
-        const {name, value, type, checked} = event.target;  
-        props.answerArray.pop();    
-        props.answerArray.push(value); 
+        console.log("this is formchange event",event.target)
+        const {name, value, checked} = event.target;  
+        console.log("OBJ FN",objectInsert(name, value))
+        console.log("THIS IS ANSWEROBJ",props.answerArray)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -20,6 +24,11 @@ export default function Quiz(props){
         })
     }
  console.log("choices",formData)
+ 
+  function handleSubmit(e){
+     e.preventDefault();
+     console.log("handlesubmit wrks", e)
+ } 
     //EACAH OF THE PROPS ARE SEPARATE FOR EACH QUESTION
     //AKA 
     //EACH QUESTION HAS INDIVIDUAL PROPS AND STATE
@@ -54,9 +63,7 @@ export default function Quiz(props){
      
      
     return (
-        
-       
-            <div className="quizBox">
+        <div className="quizBox">
                <h3 className="title">{props.data.question}</h3>
                  <div className="quizQuestions">
                         <AnswerChoices />       
