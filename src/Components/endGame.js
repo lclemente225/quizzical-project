@@ -2,6 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 
  export default function EndGame(props){
+    console.log("score", props.score)
    
         return (
             <div id="endgame">

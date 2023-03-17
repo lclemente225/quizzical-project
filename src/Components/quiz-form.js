@@ -94,9 +94,8 @@ export default function QuizForm(props){
   function handleScore() {
       let testScore = 0;
       for(let key in answerArray) {
-      if(answerArray[key] === "correct"){ 
-         testScore += 1 
-        }}
+        answerArray[key] === "correct" ? testScore += 1 : testScore += 0
+      }
       props.finalScore(testScore);
      return props.score
     }

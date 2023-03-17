@@ -11,6 +11,7 @@ export default function App(){
   
   let [startPage, pageLoading] = React.useState(false); 
   let [score, finalScore] = React.useState(0);
+  
   function handleClick(e){
      setTimeout(() => pageLoading(true),3000)
 }
@@ -25,7 +26,7 @@ return (
   <div>
       <Router>
           <Routes>
-            <Route exact path='/' element={<Welcome handleClick={handleClick} />}/>
+            <Route exact path='/' element={<Welcome handleClick={handleClick} score={score} />}/>
             <Route path='/quiz' element={<QuizForm 
                                     startPage={startPage} 
                                     score={score} 

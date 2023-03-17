@@ -5,14 +5,16 @@ export default function Quiz(props){
     const [formData, setFormData] = React.useState({
          [QuizChoice] : ""
      })
-    
-    function objectInsert(x, y){
+     function objectInsert(x, y){
         let obj = props.answerArray;
         return obj[x] = y
     }
-    
+
        function handleChange(event) {
-        const {name, value, checked} = event.target;  
+        const {name, value} = event.target;  
+        console.log(event.target)
+        console.log("OBJ FN",objectInsert(name, value))
+        console.log(props.answerArray)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
