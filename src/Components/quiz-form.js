@@ -11,7 +11,7 @@ export default function QuizForm(props){
   async function GetData(){
       
         const quizInfo = [];
-        await fetch("https://opentdb.com/api.php?amount=5")
+        await fetch("https://opentdb.com/api.php?amount=10")
         .then((response) => {
           console.log("response.json api loaded", response.json)
           return response.json()

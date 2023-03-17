@@ -45,7 +45,6 @@ font-family: 'Rubik Iso', cursive;
 }
 .quiz-container{
   background-color: rgb(168, 230, 255);
-  border:2px solid black;
   width: 100vw;
   display: flex;
   flex-flow: column;
