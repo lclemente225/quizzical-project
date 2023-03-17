@@ -12,10 +12,7 @@ export default function Quiz(props){
     }
     
        function handleChange(event) {
-        console.log("this is formchange event",event.target)
         const {name, value, checked} = event.target;  
-        console.log("OBJ FN",objectInsert(name, value))
-        console.log("THIS IS ANSWEROBJ",props.answerArray)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -23,18 +20,8 @@ export default function Quiz(props){
             }
         })
     }
- console.log("choices",formData)
  
-  function handleSubmit(e){
-     e.preventDefault();
-     console.log("handlesubmit wrks", e)
- } 
-    //EACAH OF THE PROPS ARE SEPARATE FOR EACH QUESTION
-    //AKA 
-    //EACH QUESTION HAS INDIVIDUAL PROPS AND STATE
     
-
-
    
  let AnswerChoices = () => { 
     return props.data.answers.map((answerChoice) => { 
@@ -58,16 +45,16 @@ export default function Quiz(props){
                             {answerChoice.text}
                                   </label>
                     </div> 
-     )     
+              )     
      })}
      
      
     return (
         <div className="quizBox">
                <h3 className="title">{props.data.question}</h3>
-                 <div className="quizQuestions">
+               <div className="quizQuestions">
                         <AnswerChoices />       
-            </div>
+               </div>
         </div>
     )
 }

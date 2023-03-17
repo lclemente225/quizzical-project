@@ -9,10 +9,7 @@ export default function QuizForm(props){
         
   React.useEffect(() =>{ 
   async function GetData(){
-    console.log("getting api data")
-        //you don't need a json with the key like other apis or a method: GET
-        //that is usually the second parameter to the fetch method
-        //{method: GET, xtml: key}
+      
         const quizInfo = [];
         await fetch("https://opentdb.com/api.php?amount=5")
         .then((response) => {
@@ -94,17 +91,12 @@ export default function QuizForm(props){
     
     /*****************************SUBMITTING QUIZ***************************************/
 
-  console.log("quizdata loaded",props.startPage)
-
-
-
-    function handleScore() {
+  function handleScore() {
       let testScore = 0;
       for(let key in answerArray) {
       if(answerArray[key] === "correct"){ 
          testScore += 1 
         }}
-      console.log("handleScore fn",testScore)
       props.finalScore(testScore);
      return props.score
     }
@@ -116,7 +108,7 @@ export default function QuizForm(props){
 
  /***********************************************************************************/     
       let SelectAns = () => {
-        console.log("SelectAns works")
+        console.log("Rendering Quiz Questions")
         if(quizData.length > 4){
        return quizData.map((questionInfo) => {
           let index = quizData.indexOf(questionInfo);
@@ -135,26 +127,36 @@ export default function QuizForm(props){
 
     
       function QuizPage(){
-        console.log("QuizPage works")
         return (
-          <div className="start">
+          <div className="quiz-container">
           <h3>Test your mettle!</h3>
             <form>
                 <SelectAns /> 
+                <div className="submit-button-container" >
                 <Link to="/quizComplete" >
-                <button onClick={handleSubmit}>Submit Answers</button>
+                <button onClick={handleSubmit} className="submit-button">Submit Answers</button>
                 </Link>
+                </div>
             </form>
             </div>
         )
       }
 
-     
+    function Loading(){
+      return(
+        <div id="loading-container">
+           <p id="loading">Loading...</p>
+           <img src="https://www.dictionary.com/e/wp-content/uploads/2020/02/uwu_1000x700.jpg"
+           alt="uwu" id="loading-image"></img>
+           <p id="loading-desc">if page doesn't load in 15 seconds, please go back</p>
+        </div>
+      )
+    }
     
 
     return (
         <div className="go">
-           {props.startPage ? <QuizPage  /> : <p>Loading...</p>}
+           {props.startPage ? <QuizPage  /> : <Loading />}
             
         </div>
         )
