@@ -124,7 +124,6 @@ export default function QuizForm(props){
         )               
       })
     }}
-
     
       function QuizPage(){
         return (
