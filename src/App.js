@@ -10,14 +10,35 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 export default function App(){
   
   let [startPage, pageLoading] = React.useState(false); 
-  let [score, finalScore] = React.useState(0);
+  let [score, finalScore] = React.useState(0);    
+  const [quizOver, isQuizFinished] = React.useState(false);
+  let testScore = 0;
   
   function handleClick(e){
      setTimeout(() => pageLoading(true),3000)
 }
 
+function handleScore(answerobject) { 
+  for(let key in answerobject) {
+    answerobject[key] === "correct" ? testScore += 1 : testScore += 0
+  }
+  console.log(`handleScore ${JSON.stringify(answerobject)}`)
+  finalScore(testScore);
+ return score
+}
+
+
+function handleSubmit(answerobject){
+  console.log(`handleSubmit ${JSON.stringify(answerobject)}`)
+  handleScore(answerobject);
+  isQuizFinished(true);
+}
+
+
 function resetQuiz(e){
+  console.log("quizSTATUS",quizOver)
   pageLoading(false);
+  isQuizFinished(false);
   console.log("resetting", startPage)
 }
 
@@ -30,9 +51,13 @@ return (
             <Route path='/quiz' element={<QuizForm 
                                     startPage={startPage} 
                                     score={score} 
-                                    finalScore={finalScore}/>}
+                                    finalScore={finalScore}
+                                    handleSubmit={handleSubmit}
+                                    quizOver={quizOver}
+                                    resetQuiz={resetQuiz}
+                                    />}
             />
-            <Route path='/quizComplete' element={<EndGame score={score} resetQuiz={resetQuiz}/>}/>
+            <Route path='/quizComplete' element={<EndGame score={score} resetQuiz={resetQuiz} />}/>
           </Routes>
       </Router>
       

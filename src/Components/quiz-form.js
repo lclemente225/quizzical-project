@@ -1,10 +1,11 @@
 import React from "react"
 import Quiz from "./quiz"
+import EndGame from "./endGame";
 import { Link } from "react-router-dom";
 
 export default function QuizForm(props){
-   
-    const [quizData, setQuizData] = React.useState({});    
+   console.log("quizOVER",props.quizOver)
+    const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
         
   React.useEffect(() =>{ 
@@ -91,49 +92,46 @@ export default function QuizForm(props){
     
     /*****************************SUBMITTING QUIZ***************************************/
 
-  function handleScore() {
-      let testScore = 0;
-      for(let key in answerArray) {
-        answerArray[key] === "correct" ? testScore += 1 : testScore += 0
-      }
-      props.finalScore(testScore);
-     return props.score
-    }
 
-  function handleSubmit(e){
-      console.log("submitting")
-      handleScore();
-  }
+ /***********************************************************************************/    
 
- /***********************************************************************************/     
       let SelectAns = () => {
-        console.log("Rendering Quiz Questions")
         if(quizData.length > 4){
        return quizData.map((questionInfo) => {
-          let index = quizData.indexOf(questionInfo);
+         let index = quizData.indexOf(questionInfo);
+        
         return ( 
              <Quiz 
                 key = {index + 10}
                 index = {index}
                 data = {questionInfo} 
-                onAnswer={handleScore}
                 answerArray={answerArray}
+                quizOver={props.quizOver}
             />                     
                 
         )               
       })
     }}
-    
+  
       function QuizPage(){
+
+        function handleSubmit(){
+          props.handleSubmit(answerArray)
+        }
+
         return (
           <div className="quiz-container">
           <h3>Test your mettle!</h3>
             <form>
-                <SelectAns /> 
-                <div className="submit-button-container" >
-                <Link to="/quizComplete" >
-                <button onClick={handleSubmit} className="submit-button">Submit Answers</button>
-                </Link>
+                {SelectAns()} 
+                <div className="submit-button-container">
+                {props.quizOver ?
+                 <EndGame
+                 score={props.score}
+                 resetQuiz={props.resetQuiz}
+                 /> : 
+                 <button onClick={handleSubmit} className="submit-button">Submit Answers</button>
+               }
                 </div>
             </form>
             </div>
@@ -150,11 +148,12 @@ export default function QuizForm(props){
         </div>
       )
     }
-    
+
+
 
     return (
         <div className="go">
-           {props.startPage ? <QuizPage  /> : <Loading />}
+           {props.startPage ? QuizPage() : <Loading />}
             
         </div>
         )
