@@ -77,10 +77,14 @@
   min-width: 300px;
   width: 55%;
   min-height: 180px;
-  display: flex;  
-  flex-wrap: wrap;
-  align-content:center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+span{ 
+  border: 2px solid black;
+  width: 300px;
+  padding: 20px;
+  height: auto;
 }
 .choices{
   margin-right: 0px;
@@ -89,7 +93,6 @@
   width: 220px;
   min-height: 160px;
   height: auto;
-
   display: flex;
   align-items: center;
 }
@@ -100,15 +103,20 @@ label{
 input[type="radio"]:checked + span {
   background-color: yellow;
   padding: 20px;
-  width: 300px;
+  width: 250px;
   height: auto;
   border-radius: 16px;
 }
 input[type="radio"]:checked + span.highlight {
   background-color: green;
+  border: 3px solid yellow;
+  box-shadow: 0 0 30px rgba(110, 110, 110, 0.9);
+  
 }
 input[type="radio"]:checked + span.wrong {
   background-color: red;
+  border: 3px solid yellow;
+  box-shadow: 0 0 30px rgba(110, 110, 110, 0.9);
 }
 .question{
   width: auto;

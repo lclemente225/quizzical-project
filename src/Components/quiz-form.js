@@ -7,7 +7,8 @@ export default function QuizForm(props){
    console.log("quizOVER",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
-        
+    
+  props.isQuizFinished(false);
   React.useEffect(() =>{ 
   async function GetData(){
       
@@ -30,10 +31,10 @@ export default function QuizForm(props){
         ///////////////////JUST SYMBOLS AND ODD CHARACTERS BEING COVERED////////////////////////////
                     let newQuestion = rawQuestion.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp)/g, "&").replace(/(&shy;)/g, "-").replace(/(&rsquo;)/g, "'").replace(/&uuml;/g,"ü").replace(/(&ldquo;)/g,'"').replace(/(&lsquo;)/g,"'").replace(/(&rdquo;)/g,'"').replace(/(&eacute;)(&euml;)?/g, "e").replace(/&deg;/g, "°").replace(/&sup2;/g,"²").replace(/&;/g, "&")
                     
-                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ')
+                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"')
   
                     let newWrong = rawWrong.map((ans) => {
-                        return ans.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)(&euml;)?/g, "e").replace(/(&oacute;)/g,"ó").replace(/(&iacute;)/g,"í").replace(/(&ldquo;)/g,"'").replace(/(&hellip;)/g,"...").replace(/&sigma;/gi,"Σ").replace(/&pi;/gi,"Π").replace(/&nu;/gi,"Ν").replace(/&aring;/gi,"å").replace(/&auml;/gi,"ä").replace(/&uuml;/gi,"ü").replace(/&Delta;/g, 'Δ').replace(/&lrm;/g, "<>").replace(/(&rsquo;)/g, "'")
+                        return ans.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)(&euml;)?/g, "e").replace(/(&oacute;)/g,"ó").replace(/(&iacute;)/g,"í").replace(/(&ldquo;)/g,"'").replace(/(&hellip;)/g,"...").replace(/&sigma;/gi,"Σ").replace(/&pi;/gi,"Π").replace(/&nu;/gi,"Ν").replace(/&aring;/gi,"å").replace(/&auml;/gi,"ä").replace(/&uuml;/gi,"ü").replace(/&Delta;/g, 'Δ').replace(/&lrm;/g, "<>").replace(/(&rsquo;)/g, "'").replace(/&prime;/, "'").replace(/&Prime;/, '"')
                               })
                                         
       ///////////////////JUST SYMBOLS AND ODD CHARACTERS BEING COVERED/////////////////////////////   

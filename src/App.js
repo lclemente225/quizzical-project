@@ -38,7 +38,6 @@ function handleSubmit(answerobject){
 function resetQuiz(e){
   console.log("quizSTATUS",quizOver)
   pageLoading(false);
-  isQuizFinished(false);
   console.log("resetting", startPage)
 }
 
@@ -55,6 +54,7 @@ return (
                                     handleSubmit={handleSubmit}
                                     quizOver={quizOver}
                                     resetQuiz={resetQuiz}
+                                    isQuizFinished={isQuizFinished}                            
                                     />}
             />
             <Route path='/quizComplete' element={<EndGame score={score} resetQuiz={resetQuiz} />}/>
