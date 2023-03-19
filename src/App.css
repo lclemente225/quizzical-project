@@ -110,7 +110,7 @@ input[type="radio"]:checked + span {
 input[type="radio"]:checked + span.highlight {
   background-color: green;
   border: 3px solid yellow;
-  box-shadow: 0 0 30px rgba(110, 110, 110, 0.9);
+  box-shadow: 0 0 30px rgb(110, 110, 110);
   
 }
 input[type="radio"]:checked + span.wrong {
