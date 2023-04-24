@@ -71,6 +71,7 @@ export default function Quiz(props){
      
     return (
         <div className="quizBox">
+            <h2>Question {props.index+1}</h2>
                <h3 className="title">{props.data.question}</h3>
                <div className="quizQuestions">
                         {AnswerChoices(props.index)}      

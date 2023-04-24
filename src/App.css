@@ -73,7 +73,7 @@
   border: 5px solid rgba(0, 0, 255, 0.4);
   background-color: #B6E1E7;
   border-radius: 10px;
-  padding: 10px 0px 10px 5px;
+  padding: 10px 0px 10px 1.5%;
   min-width: 300px;
   width: 55%;
   min-height: 180px;
@@ -82,6 +82,7 @@
 }
 span{ 
   border: 2px solid black;
+  background-color: rgb(140, 200, 255);
   width: 300px;
   padding: 20px;
   height: auto;
@@ -98,10 +99,10 @@ span{
 }
 label{
   line-height: 30px;
-  font-size: 20px;
+  font-size: 15px;
 }
 input[type="radio"]:checked + span {
-  background-color: yellow;
+  background-color: rgb(255, 255, 100);
   padding: 20px;
   width: 250px;
   height: auto;
@@ -109,13 +110,13 @@ input[type="radio"]:checked + span {
 }
 input[type="radio"]:checked + span.highlight {
   background-color: green;
-  border: 3px solid yellow;
+  border: 3px solid rgb(255, 255, 100);
   box-shadow: 0 0 30px rgb(110, 110, 110);
   
 }
 input[type="radio"]:checked + span.wrong {
   background-color: red;
-  border: 3px solid yellow;
+  border: 3px solid rgb(255, 255, 100);
   box-shadow: 0 0 30px rgba(110, 110, 110, 0.9);
 }
 .question{
@@ -197,4 +198,38 @@ input[type="radio"]:checked + span.wrong {
   padding: 20px;
   width: 300px;
   z-index: 2;
+}
+@media (min-width: 1025px) and (max-width: 1430px){
+  
+.quizQuestions{
+  padding: 10px 0px 10px 25px;
+  width: 570px;
+}
+
+}
+@media (max-width: 1024px) {
+  label{
+    line-height: 2px;
+    font-size: 13px;
+  }
+  .endgame-text{
+    font-size: 10px;
+  }
+  .quizQuestions{
+    border: 5px solid rgba(0, 0, 255, 0.4);
+    background-color: #B6E1E7;
+    padding: 10px 0px 10px 25px;
+    height: 400px;
+    width: 200px;  
+    grid-template-columns: 1fr;
+    align-items: center;
+    grid-template-rows: 90px 90px 90px 90px;
+  }
+  #endgameover{
+    padding-left: 50px;
+  }
+  .loading-text, .welcomeTitle, .startButton{
+    font-size: 1rem !important;
+  }
+
 }

@@ -3,7 +3,6 @@ import './App.css';
 import React from "react"
 import QuizForm from "./Components/quiz-form"
 import Welcome from "./Components/welcome-page"
-import EndGame from "./Components/endGame"
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 
@@ -31,7 +30,7 @@ function handleScore(answerobject) {
 function handleSubmit(answerobject){
   console.log(`handleSubmit ${JSON.stringify(answerobject)}`)
   handleScore(answerobject);
-  isQuizFinished(true);
+  isQuizFinished(true); 
 }
 
 
@@ -57,7 +56,6 @@ return (
                                     isQuizFinished={isQuizFinished}                            
                                     />}
             />
-            <Route path='/quizComplete' element={<EndGame score={score} resetQuiz={resetQuiz} />}/>
           </Routes>
       </Router>
       

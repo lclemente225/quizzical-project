@@ -1,7 +1,6 @@
 import React from "react"
 import Quiz from "./quiz"
 import EndGame from "./endGame";
-import { Link } from "react-router-dom";
 
 export default function QuizForm(props){
    console.log("quizOVER",props.quizOver)
@@ -12,7 +11,7 @@ export default function QuizForm(props){
   React.useEffect(() =>{ 
   async function GetData(){
     props.isQuizFinished(false);
-        const quizInfo = [];
+    const quizInfo = [];
         await fetch("https://opentdb.com/api.php?amount=10")
         .then((response) => {
           console.log("response.json api loaded", response.json)
@@ -28,16 +27,16 @@ export default function QuizForm(props){
                     let rawWrong = objArr[x].incorrect_answers;  
                     
                    //  ou.edu/research/electron/internet/special.shtml character codes 
-        ///////////////////JUST SYMBOLS AND ODD CHARACTERS BEING COVERED////////////////////////////
-                    let newQuestion = rawQuestion.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp)/g, "&").replace(/(&shy;)/g, "-").replace(/(&rsquo;)/g, "'").replace(/&uuml;/g,"ü").replace(/(&ldquo;)/g,'"').replace(/(&lsquo;)/g,"'").replace(/(&rdquo;)/g,'"').replace(/(&eacute;)(&euml;)?/g, "e").replace(/&deg;/g, "°").replace(/&sup2;/g,"²").replace(/&;/g, "&")
+        //JUST SYMBOLS AND ODD CHARACTERS BEING COVERED
+                    let newQuestion = rawQuestion.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp)/g, "&").replace(/(&shy;)/g, "-").replace(/(&rsquo;)/g, "'").replace(/&uuml;/g,"ü").replace(/(&ldquo;)/g,'"').replace(/(&lsquo;)/g,"'").replace(/(&rdquo;)/g,'"').replace(/(&eacute;)(&euml;)?/g, "e").replace(/&deg;/g, "°").replace(/&sup2;/g,"²").replace(/&;/g, "&").replace(/&uacute;/gi, "u")
                     
-                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"')
+                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
   
                     let newWrong = rawWrong.map((ans) => {
-                        return ans.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)(&euml;)?/g, "e").replace(/(&oacute;)/g,"ó").replace(/(&iacute;)/g,"í").replace(/(&ldquo;)/g,"'").replace(/(&hellip;)/g,"...").replace(/&sigma;/gi,"Σ").replace(/&pi;/gi,"Π").replace(/&nu;/gi,"Ν").replace(/&aring;/gi,"å").replace(/&auml;/gi,"ä").replace(/&uuml;/gi,"ü").replace(/&Delta;/g, 'Δ').replace(/&lrm;/g, "<>").replace(/(&rsquo;)/g, "'").replace(/&prime;/, "'").replace(/&Prime;/, '"')
+                        return ans.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)(&euml;)?/g, "e").replace(/(&oacute;)/g,"ó").replace(/(&iacute;)/g,"í").replace(/(&ldquo;)/g,"'").replace(/(&hellip;)/g,"...").replace(/&sigma;/gi,"Σ").replace(/&pi;/gi,"Π").replace(/&nu;/gi,"Ν").replace(/&aring;/gi,"å").replace(/&auml;/gi,"ä").replace(/&uuml;/gi,"ü").replace(/&Delta;/g, 'Δ').replace(/&lrm;/g, "<>").replace(/(&rsquo;)/g, "'").replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
                               })
                                         
-      ///////////////////JUST SYMBOLS AND ODD CHARACTERS BEING COVERED/////////////////////////////   
+       
   
                     //making an array
                     quizInfo.push({
@@ -60,11 +59,11 @@ export default function QuizForm(props){
                     arr[i] = arr[j];
                     arr[j] = temp;
                 }   
-           
+  
             quizInfo.map((object) => {
                 let answers = object.answers;
                 
-                function test(){ 
+                function questionRandomizer(){ 
                     const randomNumber = Math.floor(Math.random() * 4);
                     const randomNumber2 = Math.floor(Math.random() * 4);
                    
@@ -72,9 +71,8 @@ export default function QuizForm(props){
                     if(randomNumber !== randomNumber2){
                     return swap(answers, randomNumber, randomNumber2)
                     }else{
-                    return test()
+                    return questionRandomizer()
                 }}
-                test()
             })
   /***********************************END OF THEN METHOD******************************* */
          
@@ -142,10 +140,10 @@ export default function QuizForm(props){
     function Loading(){
       return(
         <div id="loading-container">
-           <p id="loading">Loading...</p>
+           <p id="loading" className="loading-text">Loading...</p>
            <img src="https://www.dictionary.com/e/wp-content/uploads/2020/02/uwu_1000x700.jpg"
            alt="uwu" id="loading-image"></img>
-           <p id="loading-desc">if page doesn't load in 15 seconds, please go back</p>
+           <p id="loading-desc" className="loading-text">if page doesn't load in 15 seconds, please go back</p>
         </div>
       )
     }
