@@ -34,7 +34,7 @@ export default function Quiz(props){
 
  
    
-  let AnswerChoices = (x) => { 
+  let AnswerChoices = (index) => { 
     return props.data.answers.map((answerChoice) => { 
          let containerClassNames = "";
         if(props.quizOver === true){
@@ -46,24 +46,23 @@ export default function Quiz(props){
          return null
      }
      return (
-          <div className="choices">
-             
-                        <input 
+          <div className="choices">                 
+                <label htmlFor={`question${index}${answerChoice.value}`}>   
+                         <input 
                             key={answerChoice.key}                        
                             type="radio"
                             className="question"
                             onChange={handleChange}
-                            name={`QuizChoice${x}`}
-                            id={`question${x}${answerChoice.value}`}
+                            name={`QuizChoice${index}`}
+                            id={`question${index}${answerChoice.value}`}
                             value={answerChoice.value}
-                            checked={answerChoice.value === formData[`QuizChoice${x}`]}
-                            /> &nbsp;
-                            <span className={containerClassNames}>
-                           <label htmlFor={`question${x}${answerChoice.value}`}>
-                            {answerChoice.text}
-                                  </label>
-                                  </span>
-                    </div> 
+                            checked={answerChoice.value === formData[`QuizChoice${index}`]}
+                                /> &nbsp;                 
+                <p className={`label-text ${containerClassNames}`}>
+                            {answerChoice.text}                                 
+                </p> 
+                </label>
+          </div> 
               )     
      })} 
    
