@@ -7,7 +7,7 @@ export default function QuizForm(props){
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
     
-  
+  //test
   React.useEffect(() =>{ 
   async function GetData(){
     props.isQuizFinished(false);
