@@ -21,14 +21,14 @@ function handleScore(answerobject) {
   for(let key in answerobject) {
     answerobject[key] === "correct" ? testScore += 1 : testScore += 0
   }
-  console.log(`handleScore ${JSON.stringify(answerobject)}`)
+  //console.log(`handleScore ${JSON.stringify(answerobject)}`)
   finalScore(testScore);
  return score
 }
 
 
 function handleSubmit(answerobject){
-  console.log(`handleSubmit ${JSON.stringify(answerobject)}`)
+  //console.log(`handleSubmit ${JSON.stringify(answerobject)}`)
   handleScore(answerobject);
   isQuizFinished(true); 
 }

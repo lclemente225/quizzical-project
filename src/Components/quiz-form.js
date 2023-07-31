@@ -10,16 +10,18 @@ export default function QuizForm(props){
   //test
   React.useEffect(() =>{ 
   async function GetData(){
+
     props.isQuizFinished(false);
     const quizInfo = [];
+
         await fetch("https://opentdb.com/api.php?amount=10")
         .then((response) => {
-          console.log("response.json api loaded", response.json)
+          //console.log("response.json api loaded", response.json)
           return response.json()
         })        
         .then((obj) => {
              let objArr = obj.results;   
-                     console.log("object of json loaded", obj)
+               //console.log("object of json loaded", obj)
                 for(let x in objArr){
                     let quizCategory = objArr[x].category;
                     let rawQuestion = objArr[x].question;
@@ -27,7 +29,7 @@ export default function QuizForm(props){
                     let rawWrong = objArr[x].incorrect_answers;  
                     
                    //  ou.edu/research/electron/internet/special.shtml character codes 
-        //JUST SYMBOLS AND ODD CHARACTERS BEING COVERED
+                   //JUST SYMBOLS AND ODD CHARACTERS BEING COVERED
                     let newQuestion = rawQuestion.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp)/g, "&").replace(/(&shy;)/g, "-").replace(/&uuml;/gi,"ü").replace(/(&rsquo;)/g, "'").replace(/&uuml;/g,"ü").replace(/(&ldquo;)/g,'"').replace(/(&lsquo;)/g,"'").replace(/(&rdquo;)/g,'"').replace(/(&eacute;)(&euml;)?/g, "e").replace(/&deg;/g, "°").replace(/&sup2;/g,"²").replace(/&;/g, "&").replace(/&uacute;/gi, "u")
                     
                     let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
@@ -37,7 +39,6 @@ export default function QuizForm(props){
                               })
                                         
        
-  
                     //making an array
                     quizInfo.push({
                                 category:quizCategory,
@@ -49,12 +50,10 @@ export default function QuizForm(props){
                         { key: 1124,isCorrect: false, text: newWrong[2], value: 'wrong3' }
                                         ]
                                 });
-                               
-                    
-                }
+                      }
                 
    //*******************************RANDOMIZE QUESTION PLACEMENT*********************************************** */
-           function swap(arr, i, j) {
+           /* function swap(arr, i, j) {
                     const temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
@@ -73,16 +72,29 @@ export default function QuizForm(props){
                     }else{
                     return questionRandomizer()
                 }}
-            })
+            }) */
+            quizInfo.forEach((object) => {
+              const answers = object.answers;
+              const randomNumber = Math.floor(Math.random() * 4);
+              const randomNumber2 = Math.floor(Math.random() * 4);
+    
+              // Perform the swap
+              const temp = answers[randomNumber];
+              answers[randomNumber] = answers[randomNumber2];
+              answers[randomNumber2] = temp;
+            });
+    
   /***********************************END OF THEN METHOD******************************* */
-         
+         //return object of quiz data
            return setQuizData(quizInfo)  
                 
                 }).catch((error) => {
         console.error('Error fetching quiz data', error);
       });
     }
-      GetData()
+      //call the above function
+      GetData();
+      //cleanup function
       return () => {
       console.log("Component unmounted or request canceled");
     };       
