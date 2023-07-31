@@ -63,7 +63,7 @@ export default function QuizForm(props){
             quizInfo.map((object) => {
                 let answers = object.answers;
                 
-                function questionRandomizer(){ 
+                return function questionRandomizer(){ 
                     const randomNumber = Math.floor(Math.random() * 4);
                     const randomNumber2 = Math.floor(Math.random() * 4);
                    
