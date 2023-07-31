@@ -11,7 +11,7 @@ export default function App(){
   let [startPage, pageLoading] = React.useState(false); 
   let [score, finalScore] = React.useState(0);    
   const [quizOver, isQuizFinished] = React.useState(false);
-  let testScore = 0;
+  let countScore = 0;
   
   function handleClick(e){
      setTimeout(() => pageLoading(true),3000)
@@ -19,10 +19,10 @@ export default function App(){
 
 function handleScore(answerobject) { 
   for(let key in answerobject) {
-    answerobject[key] === "correct" ? testScore += 1 : testScore += 0
+    answerobject[key] === "correct" ? countScore += 1 : countScore += 0
   }
   //console.log(`handleScore ${JSON.stringify(answerobject)}`)
-  finalScore(testScore);
+  finalScore(countScore);
  return score
 }
 

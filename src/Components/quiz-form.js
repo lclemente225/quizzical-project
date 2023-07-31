@@ -53,26 +53,6 @@ export default function QuizForm(props){
                       }
                 
    //*******************************RANDOMIZE QUESTION PLACEMENT*********************************************** */
-           /* function swap(arr, i, j) {
-                    const temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }   
-  
-            quizInfo.map((object) => {
-                let answers = object.answers;
-                
-                return function questionRandomizer(){ 
-                    const randomNumber = Math.floor(Math.random() * 4);
-                    const randomNumber2 = Math.floor(Math.random() * 4);
-                   
-                    
-                    if(randomNumber !== randomNumber2){
-                    return swap(answers, randomNumber, randomNumber2)
-                    }else{
-                    return questionRandomizer()
-                }}
-            }) */
             quizInfo.forEach((object) => {
               const answers = object.answers;
               const randomNumber = Math.floor(Math.random() * 4);
