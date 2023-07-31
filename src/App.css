@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-.start{width: 80vw;
+.start{
+  width: 80vw;
   height: auto;
   display:flex;
   flex-flow: column;
@@ -206,12 +207,16 @@ label > p.wrong{
 #loading-image{
   height: 100px;
 }
-
+@media (max-width: 1764px) {
+  .quizQuestions{
+    background-color:red;
+  }
+  }
 @media (min-width: 1025px) and (max-width: 1430px){
   
 .quizQuestions{
   padding: 10px 0px 10px 25px;
-  width: 570px;
+  width: 770px;
 }
 
 }

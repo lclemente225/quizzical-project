@@ -2,18 +2,18 @@ import React from "react"
 import Quiz from "./quiz"
 import EndGame from "./endGame";
 
-export default function QuizForm(props){
+export default function QuizForm({isQuizFinished,...props}){
    console.log("quizOVER",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
-    
+
   //test
   React.useEffect((props) =>{ 
-    console.log("STARTING THE PAGE ",props.startPage)
+    console.log("STARTING THE PAGE ")
     console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
 
-    props.isQuizFinished(false);
+    isQuizFinished(false);
     const quizInfo = [];
 
         await fetch("https://opentdb.com/api.php?amount=10")
@@ -81,7 +81,7 @@ export default function QuizForm(props){
       console.log("Component unmounted or request canceled");
     };       
     
-  }, [props.startPage])
+  },[])
     
     /*****************************SUBMITTING QUIZ***************************************/
 
