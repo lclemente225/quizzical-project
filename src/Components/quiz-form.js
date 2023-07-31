@@ -6,6 +6,7 @@ export default function QuizForm({isQuizFinished,...props}){
    console.log("quizOVER",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
+    isQuizFinished(false);
 
   //test
   React.useEffect((props) =>{ 
@@ -13,7 +14,6 @@ export default function QuizForm({isQuizFinished,...props}){
     console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
 
-    isQuizFinished(false);
     const quizInfo = [];
 
         await fetch("https://opentdb.com/api.php?amount=10")
@@ -81,7 +81,7 @@ export default function QuizForm({isQuizFinished,...props}){
       console.log("Component unmounted or request canceled");
     };       
     
-  },[])
+  },[props])
     
     /*****************************SUBMITTING QUIZ***************************************/
 
