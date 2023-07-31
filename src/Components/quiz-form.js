@@ -8,7 +8,9 @@ export default function QuizForm(props){
     const answerArray = {};
     
   //test
-  React.useEffect(() =>{ 
+  React.useEffect((props) =>{ 
+    console.log("STARTING THE PAGE ",props.startPage)
+    console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
 
     props.isQuizFinished(false);
