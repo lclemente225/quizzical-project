@@ -6,13 +6,13 @@ export default function QuizForm({isQuizFinished,...props}){
    console.log("quizOVER",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
-    isQuizFinished(false);
 
   //test
   React.useEffect(() =>{ 
     console.log("STARTING THE PAGE ")
     console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
+    isQuizFinished(false);
 
     const quizInfo = [];
 
