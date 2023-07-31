@@ -9,7 +9,7 @@ export default function QuizForm({isQuizFinished,...props}){
     isQuizFinished(false);
 
   //test
-  React.useEffect((props) =>{ 
+  React.useEffect(() =>{ 
     console.log("STARTING THE PAGE ")
     console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
@@ -81,7 +81,7 @@ export default function QuizForm({isQuizFinished,...props}){
       console.log("Component unmounted or request canceled");
     };       
     
-  },[props])
+  },[])
     
     /*****************************SUBMITTING QUIZ***************************************/
 
