@@ -242,15 +242,16 @@ label > p.wrong{
     text-align: center;
   }
   .quizBox{
-    max-height:700px;
+    max-height:800px;
     min-width:320px !important;
-    padding: 0;
+    padding: 0 0 30px;
     margin: 40px 0;
   }
   .quizQuestions{
-    padding: 10px 0px 10px 40px;
+    padding: 10px 0px 10px 20px;
     max-height: 800px;
     max-width: 200px; 
+    width:100%;
     height:auto;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
