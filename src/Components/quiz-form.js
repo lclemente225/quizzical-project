@@ -2,18 +2,20 @@ import React from "react"
 import Quiz from "./quiz"
 import EndGame from "./endGame";
 
-export default function QuizForm({setPageLoadingStatus,...props}){
-   console.log("quizOVER",props.quizOver)
+export default function QuizForm({isQuizFinished,...props}){
+   console.log("quizOVER????",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
 
+React.useEffect(() =>{
+  isQuizFinished(false);
+ }
+,[isQuizFinished])
 
   //test
   React.useEffect(() =>{ 
   async function GetData(){
    // change into a function that will chagne state in parent compponent
-    setPageLoadingStatus(false);
-
     const quizInfo = [];
 
         await fetch("https://opentdb.com/api.php?amount=10")
@@ -34,7 +36,7 @@ export default function QuizForm({setPageLoadingStatus,...props}){
                    //JUST SYMBOLS AND ODD CHARACTERS BEING COVERED
                     let newQuestion = rawQuestion.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp)/g, "&").replace(/(&shy;)/g, "-").replace(/&uuml;/gi,"ü").replace(/(&rsquo;)/g, "'").replace(/&uuml;/g,"ü").replace(/(&ldquo;)/g,'"').replace(/(&lsquo;)/g,"'").replace(/(&rdquo;)/g,'"').replace(/(&eacute;)(&euml;)?/g, "e").replace(/&deg;/g, "°").replace(/&sup2;/g,"²").replace(/&;/g, "&").replace(/&uacute;/gi, "u")
                     
-                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
+                    let newCorrect = rawCorrect.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)/g, "é").replace(/&uuml;/gi,"ü").replace(/(&iacute;)/g,"í").replace(/&omicron;/gi,"Ο").replace(/&ouml;/gi,"ö").replace(/(&oacute;)/g,"ó").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&Delta;/g,'Δ').replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
   
                     let newWrong = rawWrong.map((ans) => {
                         return ans.replace(/(&quot;)/g, "'").replace(/(&#039;)/g,"'").replace(/(&amp;)/g, "&").replace(/(&eacute;)(&euml;)?/g, "e").replace(/(&oacute;)/g,"ó").replace(/(&iacute;)/g,"í").replace(/(&ldquo;)/g,"'").replace(/(&hellip;)/g,"...").replace(/&ntilde;/gi,"ñ").replace(/&aacute;/gi,"á").replace(/&sigma;/gi,"Σ").replace(/&pi;/gi,"Π").replace(/&nu;/gi,"Ν").replace(/&aring;/gi,"å").replace(/&auml;/gi,"ä").replace(/&uuml;/gi,"ü").replace(/&Delta;/g, 'Δ').replace(/&lrm;/g, "<>").replace(/(&rsquo;)/g, "'").replace(/&prime;/, "'").replace(/&Prime;/, '"').replace(/&divide;/g, "/").replace(/&uacute;/gi, "u")
@@ -118,13 +120,14 @@ export default function QuizForm({setPageLoadingStatus,...props}){
             <form>
                 {SelectAns()} 
                 <div className="submit-button-container">
-                {props.quizOver ?
+                {
+                props.quizOver ?
                  <EndGame
                  score={props.score}
                  resetQuiz={props.resetQuiz}
                  /> : 
                  <button onClick={handleSubmit} className="submit-button">Submit Answers</button>
-               }
+                }
                 </div>
             </form>
             </div>

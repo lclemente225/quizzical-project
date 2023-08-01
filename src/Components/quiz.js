@@ -59,7 +59,7 @@ export default function Quiz(props){
                             checked={answerChoice.value === formData[`QuizChoice${index}`]}
                                 /> &nbsp;                 
                 <p className={`label-text ${containerClassNames}`}>
-                            {answerChoice.text}                                 
+                    {answerChoice.text}                                 
                 </p> 
                 </label>
           </div> 

@@ -1,11 +1,11 @@
 import React from "react"
 import {Link} from "react-router-dom"
   
-export default function EndGame(props){
+export default function EndGame({score, resetQuiz}){
    
         return (
             <div id="endgame">
-               {props.score > 8 ? 
+               {score > 8 ? 
                 <h1 id="endgameover" className="endgame-text">
                 Congratulations!
                 </h1> : 
@@ -13,10 +13,10 @@ export default function EndGame(props){
                       Better Luck Next Time!
                 </h1>}
                   <p id="score" className="endgame-text">
-                  Your score is : {props.score} out of 10
+                  Your score is : {score} out of 10
                  </p>
                 <Link to="/">
-                    <button onClick={props.resetQuiz} id="endgame-button" className="endgame-text">
+                    <button onClick={resetQuiz} id="endgame-button" className="endgame-text">
                         Start Quiz Again?
                     </button>
                 </Link>
