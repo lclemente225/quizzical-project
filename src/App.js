@@ -13,8 +13,12 @@ export default function App(){
   const [quizOver, isQuizFinished] = React.useState(false);
   let countScore = 0;
   
-  function handleClick(e){
-     setTimeout(() => pageLoading(true),3000)
+function setPageLoadingStatus(value){
+  isQuizFinished(value)
+}
+
+function handleClick(e){
+     setTimeout(() => {pageLoading(true)},3000)
 }
 
 function handleScore(answerobject) { 
@@ -30,7 +34,7 @@ function handleScore(answerobject) {
 function handleSubmit(answerobject){
   //console.log(`handleSubmit ${JSON.stringify(answerobject)}`)
   handleScore(answerobject);
-  isQuizFinished(true); 
+  setPageLoadingStatus(true); 
 }
 
 
@@ -53,7 +57,8 @@ return (
                                     handleSubmit={handleSubmit}
                                     quizOver={quizOver}
                                     resetQuiz={resetQuiz}
-                                    isQuizFinished={isQuizFinished}                            
+                                    isQuizFinished={isQuizFinished}   
+                                    setPageLoadingStatus={setPageLoadingStatus}                         
                                     />}
             />
           </Routes>

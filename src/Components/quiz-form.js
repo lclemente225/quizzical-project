@@ -2,17 +2,17 @@ import React from "react"
 import Quiz from "./quiz"
 import EndGame from "./endGame";
 
-export default function QuizForm({isQuizFinished,...props}){
+export default function QuizForm({setPageLoadingStatus,...props}){
    console.log("quizOVER",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
 
+
   //test
   React.useEffect(() =>{ 
-    console.log("STARTING THE PAGE ")
-    console.log("STARTING MY PAGE WHOOOWHOOO")
   async function GetData(){
-    isQuizFinished(false);
+   // change into a function that will chagne state in parent compponent
+    setPageLoadingStatus(false);
 
     const quizInfo = [];
 
@@ -134,7 +134,9 @@ export default function QuizForm({isQuizFinished,...props}){
     function Loading(){
       return(
         <div id="loading-container">
-           <p id="loading" className="loading-text">Loading...</p>
+           <p id="loading" className="loading-text">
+              Loading...
+            </p>
            <img src="https://www.dictionary.com/e/wp-content/uploads/2020/02/uwu_1000x700.jpg"
            alt="uwu" id="loading-image"></img>
            <p id="loading-desc" className="loading-text">if page doesn't load in 15 seconds, please go back</p>
@@ -147,7 +149,6 @@ export default function QuizForm({isQuizFinished,...props}){
     return (
         <div className="go">
            {props.startPage ? QuizPage() : <Loading />}
-            
         </div>
         )
 }

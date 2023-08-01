@@ -176,6 +176,7 @@ label > p.wrong{
 }
 .endgame-text{
   color: rgba(0, 0, 0, 0.9);
+  text-align: center !important;
 }
 #endgame-button{
   font-size: 2rem;
@@ -203,57 +204,78 @@ label > p.wrong{
   flex-flow: column;
   justify-items: center;
   align-items: center;
+  text-align: center;
 }
 #loading-image{
   height: 100px;
 }
-@media (max-width: 1764px) {
+
+
+@media (min-width: 1431px) and (max-width: 1764px) {
   .quizQuestions{
-    background-color:red;
+    min-width:650px;
   }
-  }
-@media (min-width: 1025px) and (max-width: 1430px){
-  
-.quizQuestions{
-  padding: 10px 0px 10px 25px;
-  width: 770px;
 }
 
+
+@media (min-width: 1025px) and (max-width: 1430px){
+  .quizQuestions{
+    padding: 10px 0px 10px 25px;
+    width: 650px;
+  }
 }
+
+
 @media (max-width: 1024px) {
   label{
     line-height: auto;
     font-size: 13px;
   }
-  
-  .quizQuestions{
-    border: 5px solid rgba(0, 0, 255, 0.4);
-    background-color: #B6E1E7;
-    padding: 10px 0px 10px 25px;
-    height: 450px;
-    width: 200px;  
-    grid-template-columns: 1fr;
-    align-items: center;
-    grid-template-rows: 100px 100px 100px 100px;
-  }
-  .choices{
-    display: flex;
+  form{
+    width:100%;
+    display:flex;
     flex-direction: column;
     align-items: center;
-    width: 240px;
-    padding: 20px;
-    height: auto;
   }
-  label{
-    width: auto;
-    height: auto;
-    justify-content: space-between;
+  .title{
+    width:80%;
+    text-align: center;
   }
-  #endgameover{
-    padding-left: 50px;
+  .quizBox{
+    max-height:700px;
+    min-width:320px !important;
+    padding: 0;
+    margin: 40px 0;
+  }
+  .quizQuestions{
+    padding: 10px 0px 10px 40px;
+    max-height: 800px;
+    max-width: 200px; 
+    height:auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+  }
+  .choices{
+    align-self: center;
+    width: 70%;
+    height: auto;
+    padding:0;
+  }
+  .label{
+    border:22px solid green !important;
+  }
+  .title{
+    font-size:15px;
   }
   .endgame-text{
-    font-size: 10px;
+    font-size: 30px ;
+  }
+  .submit-button-container{
+    width:100%;
+  }
+  #endgameover{
+    font-size:45px;
   }
   .loading-text, .welcomeTitle, .startButton{
     font-size: 1rem !important;
