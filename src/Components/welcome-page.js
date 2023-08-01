@@ -8,7 +8,10 @@ export default function Welcome(props){
                 <h1 className="welcomeTitle">Lawrence's Riddle me Diddle</h1>
                 <Link to="/quiz"  className="startButton-container" >
                 <button className="startButton" onClick={props.handleClick}>Start Quiz</button>
-                </Link>        
+                </Link>      
+                <Link to="https://lclemente225.github.io/" className="portfolio-button-container" >
+                <button className="startButton">My Portfolio</button>
+                </Link>          
         </div>
     )
 }
