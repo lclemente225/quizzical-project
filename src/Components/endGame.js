@@ -20,6 +20,9 @@ export default function EndGame({score, resetQuiz}){
                         Start Quiz Again?
                     </button>
                 </Link>
+                <Link to="https://lclemente225.github.io/" className="portfolio-button-container" >
+                    <button className="endgame-portfolio-button">My Portfolio</button>
+                </Link>  
             </div>
         )
     }

@@ -12,6 +12,8 @@
 .welcomeTitle{  
   font-family: 'Inter', sans-serif;
   font-family: 'Rubik Iso', cursive;
+  text-align: center;
+  width:80%;
 }
 .welcomePage{
   background-color: #FAE7A5;
@@ -21,6 +23,9 @@
   align-items: center;
   flex-flow: column;
   justify-content: center;
+}
+.api-link{
+  margin-top:10rem;
 }
 .startButton-container{
   text-decoration: none;
@@ -45,6 +50,10 @@
   border: none;  
   border-radius: 10px;
   cursor:pointer;
+}
+.api-link{
+  text-align: center;
+  width: 80%
 }
 .quiz-container{
   background-color: rgb(168, 230, 255);
@@ -181,10 +190,20 @@ label > p.wrong{
 #endgame-button{
   font-size: 2rem;
   padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   background-color: rgba(0, 0, 255, 0.4);
 }
 #endgame-button:active{
+  border-radius: 7px;
+  box-shadow: inset 0 0 30px rgba(110, 110, 110, 0.9);
+}
+.endgame-portfolio-button{
+  font-size: 2rem;
+  padding: 20px;
+  margin-bottom: 100px;
+  background-color: rgba(0, 0, 255, 0.4);
+}
+.endgame-portfolio-button:active{
   border-radius: 7px;
   box-shadow: inset 0 0 30px rgba(110, 110, 110, 0.9);
 }
@@ -227,6 +246,11 @@ label > p.wrong{
 
 
 @media (max-width: 1024px) {
+  .startButton{
+    width:100px;
+    height:50px;
+    padding:0;
+  }
   label{
     line-height: auto;
     font-size: 13px;
