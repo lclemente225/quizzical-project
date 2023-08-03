@@ -28,21 +28,18 @@
   margin-top:10rem;
 }
 .startButton-container{
-  text-decoration: none;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 80px;
-  width: 200px;  
+  margin-top: 2rem;
   border-radius: 10px;
 }
-.startButton:active{
-  box-shadow: inset 0 0 30px rgba(110, 110, 110, 0.9);
+.portfolio-button-container{
+  margin:2rem 0 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid red;
 }
 .startButton{
   background-color: rgb(168, 230, 255);
   font-size: 2rem;
-  margin-top: 2rem;
   max-width: 200px;
   height: 80px;
   width: 200px;
@@ -50,6 +47,9 @@
   border: none;  
   border-radius: 10px;
   cursor:pointer;
+}
+.startButton:active{
+  box-shadow: inset 0 0 30px rgba(110, 110, 110, 0.9);
 }
 .api-link{
   text-align: center;
@@ -172,7 +172,6 @@ label > p.wrong{
   background-color: rgba(1, 255, 1, 0.5);
   box-shadow: inset 0 0 30px rgba(110, 110, 110, 0.9);
 }
-
 #endgame{
   display: flex;
   flex-flow: column;
@@ -187,11 +186,15 @@ label > p.wrong{
   color: rgba(0, 0, 0, 0.9);
   text-align: center !important;
 }
+.endgame-button-container{
+  margin-bottom: 40px;
+}
 #endgame-button{
   font-size: 2rem;
   padding: 20px;
-  margin-bottom: 40px;
+  border-radius: 10px;
   background-color: rgba(0, 0, 255, 0.4);
+  cursor: pointer;
 }
 #endgame-button:active{
   border-radius: 7px;
@@ -200,8 +203,10 @@ label > p.wrong{
 .endgame-portfolio-button{
   font-size: 2rem;
   padding: 20px;
-  margin-bottom: 100px;
   background-color: rgba(0, 0, 255, 0.4);
+  margin:2rem 0 100px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .endgame-portfolio-button:active{
   border-radius: 7px;
@@ -246,6 +251,12 @@ label > p.wrong{
 
 
 @media (max-width: 1024px) {
+  .welcomeTitle{
+    font-size:2rem;
+  }
+  .loading-text, .startButton{
+    font-size: 1rem !important;
+  }
   .startButton{
     width:100px;
     height:50px;
@@ -294,16 +305,13 @@ label > p.wrong{
     font-size:15px;
   }
   .endgame-text{
-    font-size: 30px ;
+    font-size: 30px !important;
   }
   .submit-button-container{
     width:100%;
   }
-  #endgameover{
-    font-size:45px;
-  }
-  .loading-text, .welcomeTitle, .startButton{
-    font-size: 1rem !important;
+  .endgame-button, .endgame-portfolio-button{
+    font-size:20px !important;
   }
 
 }

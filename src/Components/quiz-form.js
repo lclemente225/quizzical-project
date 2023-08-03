@@ -3,7 +3,7 @@ import Quiz from "./quiz"
 import EndGame from "./endGame";
 
 export default function QuizForm({isQuizFinished,...props}){
-   console.log("quizOVER????",props.quizOver)
+   //console.log("quizOVER????",props.quizOver)
     const [quizData, setQuizData] = React.useState({});
     const answerArray = {};
 
