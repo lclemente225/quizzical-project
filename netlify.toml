@@ -1,3 +1,10 @@
 [build]
   command = "npm run build"
   publish = "build"
+
+  
+[[redirects]]
+  from = "/quiz"
+  to = "/"
+  status = 404
+  force = true
