@@ -135,7 +135,7 @@ React.useEffect(() =>{
         )
       }
     function Loading(){
-      setTimeout(() => isQuizBroken(true), 15000);
+      setTimeout(() => isQuizBroken(true), 100);
       return(
         <div id="loading-container">
            <p id="loading" className="loading-text">
