@@ -145,7 +145,7 @@ React.useEffect(() =>{
            alt="uwu" id="loading-image"></img>
            <p id="loading-desc" className="loading-text">if page doesn't load in 15 seconds, please go back</p>
            
-           <a href="/" onClick={() => isQuizBroken(false)}>
+           <a href="/" onClick={() => isQuizBroken(false)} style={{fontSize: '2rem'}}>
             My bad bro
             </a>
             
