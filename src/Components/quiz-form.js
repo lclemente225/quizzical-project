@@ -90,7 +90,7 @@ React.useEffect(() =>{
 
  /***********************************************************************************/    
 
-      let SelectAns = () => {
+      function SelectAns() {
         if(quizData.length > 4){
        return quizData.map((questionInfo) => {
          let index = quizData.indexOf(questionInfo);

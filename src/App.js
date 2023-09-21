@@ -35,9 +35,9 @@ function handleSubmit(answerobject){
 
 
 function resetQuiz(e){
-  console.log("quizSTATUS",quizOver)
+  //console.log("quizSTATUS",quizOver)
   pageLoading(false);
-  console.log("resetting", startPage)
+ // console.log("resetting", startPage)
 }
 
 

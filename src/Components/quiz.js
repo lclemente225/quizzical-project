@@ -13,7 +13,7 @@ export default function Quiz(props){
     function handleChange(event) {
         const {name, value, className} = event.target;  
         objectInsert(name, value)
-        console.log("CLASSNAME",className);
+        //console.log("CLASSNAME",className);
         setFormData((prevFormData) => {
             return {
                 ...prevFormData,
