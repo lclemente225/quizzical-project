@@ -4,6 +4,6 @@
 
 [[redirects]]
   from = "/quiz"
-  to = "/"
+  to = "/index.html"
   status = 404
   force = true
