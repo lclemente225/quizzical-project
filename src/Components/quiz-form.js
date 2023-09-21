@@ -144,11 +144,11 @@ React.useEffect(() =>{
            <img src="https://www.dictionary.com/e/wp-content/uploads/2020/02/uwu_1000x700.jpg"
            alt="uwu" id="loading-image"></img>
            <p id="loading-desc" className="loading-text">if page doesn't load in 15 seconds, please go back</p>
-           {quizBroken && 
+           
            <a href="/" onClick={() => isQuizBroken(false)}>
             My bad bro
             </a>
-            }
+            
         </div>
       )
     }
